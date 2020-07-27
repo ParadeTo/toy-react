@@ -52,13 +52,18 @@ export let ToyReact = {
     }
     let insertChildren = (children) => {
       for (let child of children) {
-        if (typeof child === 'string') {
-          child = new TextWrapper(child)
-        }
-
         if (Array.isArray(child)) {
           insertChildren(child)
         } else {
+          if (
+            !(child instanceof Component) &&
+            !(child instanceof ElementWrapper) &&
+            !(child instanceof TextWrapper)
+          )
+            child = child.toString()
+          if (typeof child === 'string') {
+            child = new TextWrapper(child)
+          }
           element.appendChild(child)
         }
       }

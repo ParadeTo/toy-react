@@ -4,6 +4,7 @@ class MyComponent extends Component {
   render() {
     return (
       <div>
+        <span>{true}</span>
         col<div>{this.children}</div>
       </div>
     )
