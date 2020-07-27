@@ -1,7 +1,19 @@
-console.log('main')
+import {ToyReact, Component} from './ToyReact/ToyReact'
 
-for (let i of [1, 2, 3]) {
-  console.log(i)
+class MyComponent extends Component {
+  render() {
+    return (
+      <div>
+        col<div>{this.children}</div>
+      </div>
+    )
+  }
 }
 
-const a = <MyComponent />
+const a = (
+  <MyComponent name='ayou'>
+    <span>123</span>
+  </MyComponent>
+)
+
+ToyReact.render(a, document.body)
